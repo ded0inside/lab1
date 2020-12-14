@@ -20,8 +20,8 @@ with open('steam_description_data.csv', encoding='utf-8') as f:
         words += len(string.split())
         sentences += len(re.findall(r"([A-Z][^\.!?]*[\.!?])", string))
 
-print('Общее кол-во знаков: ',symbols)
-print('Кол-во символов без знаков препинания: ', symbols - punctuation)
-print('Кол-во символов без пробелов',symbols-spaces)
-print('Кол-во слов: ',words)
-print('Кол-во предложений: ',sentences)
+print('Общее кол-во знаков:',symbols)
+print('Кол-во символов без знаков препинания:', symbols - punctuation)
+print('Кол-во символов без пробелов:',symbols-spaces)
+print('Кол-во слов:',words)
+print('Кол-во предложений:',sentences)
