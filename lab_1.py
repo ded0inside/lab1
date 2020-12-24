@@ -8,6 +8,7 @@ punctuation = 0
 spaces = 0
 words = 0
 sentences = 0
+bold_sentences = 0
 
 with open('steam_description_data.csv', encoding='utf-8') as f:
     reader = csv.reader(f)
@@ -19,9 +20,11 @@ with open('steam_description_data.csv', encoding='utf-8') as f:
         spaces += string.count(' ')
         words += len(string.split())
         sentences += len(re.findall(r"([A-Z][^\.!?]*[\.!?])", string))
+        bold_sentences += len(re.findall(r'(<strong>((!?<\/strong>).)*[<\/strong>])', string))
 
 print('Общее кол-во знаков:', symbols)
 print('Кол-во символов без знаков препинания:', symbols - punctuation)
 print('Кол-во символов без пробелов:', symbols - spaces)
 print('Кол-во слов:', words)
 print('Кол-во предложений:', sentences)
+print('Кол-во предложений, написанных жирным текстом:', bold_sentences)
