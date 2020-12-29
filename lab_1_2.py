@@ -22,7 +22,10 @@ with open("steam_description_data.csv", encoding="utf-8") as f:
         sentences += len(re.findall(r"([A-Z][^\.!?]*[\.!?])", string))
         strong = re.findall(r"(<strong>(?!<\/strong>).*<\/strong>)", string)
         for i in strong:
-            bold_words += len(i.split()) - 2
+            for n in i.split():
+                if n != '<strong>' and n != '</strong>':
+                    print(n)
+                    bold_words += 1
 
 print("Общее кол-во знаков:", symbols)
 print("Кол-во символов без знаков препинания:", symbols - punctuation)
